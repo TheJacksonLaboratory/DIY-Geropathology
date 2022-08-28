@@ -4,3 +4,5 @@ This Repository will provide code to help you apply our geropathology tools to y
 Overall this repository is being built to be used in conjunction with https://www.geropathology-imaging.org/
 
 More detailed directions can be found there, for those with more advanced computational skills directly working with codes via github is privided as an option.  
+
+If using Qupath to download tiles for the aging classifers use the file KidneyTileDownload.groovy   This file needs to be adjusted in lines ~ 20 to 24 for the labels relevant to your project and slides.   If you are using a different classifer than the one provided for the kidney, then you need to pay attention to the .tileSize() and .overlap() options as these numbers might need to be adjusted.  
