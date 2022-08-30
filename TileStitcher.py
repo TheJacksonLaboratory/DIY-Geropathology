@@ -12,6 +12,7 @@ import numpy as np
 
 def KidneyRGBSticher(target_dir,out_dir,down_sample,interval=512,tile_size=512):
     slide_dirs=os.listdir(target_dir)
+    slide_dirs =[sdir for sdir in slide_dirs if os.path.isdir(target_dir+sdir)]
     for slide_dir in slide_dirs:
         tile_files=np.array(os.listdir(target_dir+slide_dir))
         xs=[]
