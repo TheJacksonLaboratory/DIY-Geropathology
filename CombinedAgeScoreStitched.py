@@ -43,6 +43,8 @@ def OtsuMeathod(score_vector,num_bins):
 def CombinedAgeScore(score_mask_dir, age_mask_dir, image_dir=[], thresh_meathod="Percentile", thresh_param=5, 
                      dist=scipy.stats.norm, loc=0, scale=1):
     score_mask_zarrs=os.listdir(score_mask_dir)
+    print(score_mask_zarrs)
+    score_mask_zarrs=[score_mask for score_mask in score_mask_zarrs if '.zarr' in score_mask]
     score_mask_zarrs=np.sort(score_mask_zarrs)
     zm=zarr.open(score_mask_dir+score_mask_zarrs[0])
     if thresh_meathod=="GaussianBlur":
