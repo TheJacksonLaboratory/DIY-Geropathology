@@ -9,6 +9,7 @@ import numpy as np
 import zarr
 import cv2
 import time
+import os
 
 
 def paint_image(tissue_image,mask,mask_bounds=None,colorspace=cv2.COLORMAP_JET):
@@ -204,4 +205,3 @@ def image_heatmap(tissue_image_path,mask_path,image_heatmap_path,mask_bounds,col
         painted_image=paint_image(tissue_images[mm], masks[mm], mask_bounds, colorspace)
         painted_image=Image.fromarray(painted_image)
         painted_image.save(image_heatmap_path,"PNG")#+"{run:02d}".format(run=mm+1)+".png","PNG")
-
