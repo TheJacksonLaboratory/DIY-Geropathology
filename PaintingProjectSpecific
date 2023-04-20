@@ -1,0 +1,22 @@
+tissue_image_path="/Users/sms/Documents/Projects/KidneyRelated/ITP/Cana/Stitched/"
+mask_path="/Users/sms/Documents/Projects/KidneyRelated/ITP/Cana/CompiledAgeScores/"
+image_heatmap_path="/Users/sms/Documents/Projects/KidneyRelated/ITP/Cana/Painting/"
+mask_bounds=[-4,4]
+
+for filename in os.listdir(tissue_image_path):
+    image=os.path.join(tissue_image_path,filename)
+    if os.path.isfile(image):
+        print("Path of Image to process",image)
+    for score in os.listdir(mask_path):
+        agescore=os.path.join(mask_path,score)
+        print("Path of AgeScore to paint",agescore)
+        rootname = (filename.split(".png"))
+        print("rootname is",rootname)
+        scoreroot=(score.split("_age_scores.zarr"))
+        print("scoreroot name is",scoreroot)
+        if rootname ==scoreroot:
+            outname=os.path.join(image_heatmap_path,filename)
+            print(outname)
+            image_heatmap(image,agescore,outname,mask_bounds,colorspace=cv2.COLORMAP_JET)
+        else:
+            print("file match errror")
